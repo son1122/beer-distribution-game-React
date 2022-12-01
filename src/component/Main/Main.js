@@ -2,7 +2,8 @@ import { useState } from "react";
 import "./Main.css";
 
 const Main = (props) => {
-  const [infoPage,setInfoPage] = useState(1)
+  const [infoPage, setInfoPage] = useState(1);
+  let maxPage = 4;
   let list = props.countryCode.map((loop, index) => {
     return (
       <p
@@ -19,9 +20,21 @@ const Main = (props) => {
     <div className="main-container">
       <div className="info">
         <div className="info-page">
-        <p className="previous round">&#8249;</p>
-        <h1 style={{ textAlign: "center" }}>This is the homepage!</h1>
-        <p className="next round">&#8250;</p>
+          <p
+            onClick={() => {
+              setInfoPage(infoPage <= 1 ? maxPage : infoPage - 1);
+              console.log(infoPage);
+            }}
+            className="previous round"
+          >
+            &#8249;
+          </p>
+          <h1 style={{ textAlign: "center" }}>This is the homepage!</h1>
+          <p onClick={() => {
+              setInfoPage(infoPage >= maxPage ? 1 : infoPage + 1);
+              console.log(infoPage);
+            }}
+            className="next round">&#8250;</p>
         </div>
         <h3 style={{ marginLeft: "6%", marginRight: "10%" }}>
           &emsp;&emsp;&emsp;&emsp;&emsp; Beer Distribution Game is Financial
