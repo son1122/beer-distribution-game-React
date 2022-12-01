@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Main.css";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 const Main = (props) => {
   const navigate = useNavigate();
   const [infoPage, setInfoPage] = useState(1);
@@ -151,6 +151,44 @@ const Main = (props) => {
         {props.country != null && (
           <button
             onClick={() => {
+              let options = {
+                method: 'GET',
+                url: 'https://holidays-by-api-ninjas.p.rapidapi.com/v1/holidays/',
+                headers: {
+                  'X-RapidAPI-Key': '9fb954e0d0msh1fcc78ff571276ap1e3d63jsnf114407345b7',
+                  'X-RapidAPI-Host': 'holidays-by-api-ninjas.p.rapidapi.com'
+                },
+                params: {
+                  country: "th",
+                  year : 2021
+
+                }
+              };
+              let data = []
+              axios.request(options).then(function (response) {
+                console.log(response.data);
+                props.setCountryHoliday(response.data)
+              }).catch(function (error) {
+                console.error(error);
+              });
+
+              options = {
+                method: 'GET',
+                url: 'https://restcountries.com/v3.1/alpha',
+                headers: {
+                },
+                params: {
+                  codes:"th"
+                }
+              };
+              data = []
+              axios.request(options).then(function (response) {
+                console.log(response.data);
+                props.setCountryData(response.data)
+              }).catch(function (error) {
+                console.error(error);
+              });
+
               return navigate("/game")
             }}
             style={{ width: "30%", height: "25%" }}
