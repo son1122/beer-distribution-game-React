@@ -8,6 +8,7 @@ import About from "./component/About/About"
 import Player from "./component/Player/Player";
 import { useHistory } from "react-router-dom";
 import axios from "axios"
+
 const countryCode =[
   {code:'AF',name: 'Afghanistan'},
   {code:'AX',name: 'Aland Islands'},
@@ -255,6 +256,7 @@ const countryCode =[
   {code:'ZM',name: 'Zambia'},
   {code:'ZW',name: 'Zimbabwe'}
   ];
+
 function App(){
   const [para, setPara] = useState() //stock cost , back log cost , turn number , holiday amp
   const [player,setPlayer] = useState(1)
@@ -314,24 +316,7 @@ function App(){
 
     return (
       <div>
-        <div>
-        <nav>
-          <Link to  = "/">
-          <img
-            src="https://i.pinimg.com/736x/6e/24/41/6e24416dc6d19a79272eef27a28d83ec.jpg"
-            alt=""
-          />
-          
-          </Link>
-          <Link to  = {"/game/"}>
-          <h1>Beer Game</h1>
-          </Link>
-          
-          <Link to  = "/about">
-              About
-          </Link>
-        </nav>
-        </div>
+          <Header />
         <div>
           <Routes>
             <Route path="/" element={<Main country={country} countryCode={countryCode} setCountry={setCountry}/>}/>

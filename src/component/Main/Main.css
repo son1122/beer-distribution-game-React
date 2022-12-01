@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 70vw auto;
     grid-template-rows: auto;
-    text-align: center;
+    text-align: left;
   }
   .main-container img{
     width: 100%

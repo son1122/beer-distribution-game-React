@@ -12,9 +12,12 @@ const Main = (props) => {
   return (
     <div className="main-container">
       <div>
-        <h1>This is the homepage!</h1>
-        <h3>  Beer Distribution Game is Financial Simulation Game that simulate product distribution across 
-          4 player that act as Retailer Wholesale Distributor Manufactoring
+        <h1 style={{textAlign: 'center'}}>This is the homepage!</h1>
+        <h3>&emsp;&emsp;&emsp;&emsp;&emsp; Beer Distribution Game is Financial Simulation Game that simulate product distribution across 
+          4 player that act as Retailer Wholesale Distributor Manufactoring (Player 1 to 4 in order) to simulate and show 
+          the problem in Distribution System. This Website aim to improve Beer Game with more function and plannig for user to
+          gain more fun with adaptive Simulation game you can find source code <a target="_blank" href="https://github.com/son1122/beer-distribution-game-React">HERE</a>
+          If you have any Suggestion or anything Please let me know.Thank you every one for your attention        
         </h3>
         <img src="https://zensimu.com/assets/static/beergame-header-visual.06976bc.0a1ff2bb7cc7457c115dd1b15a568c0c.png"/>
       </div>
