@@ -1,32 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./View.css";
 import { Chart } from "react-google-charts";
-import React from 'react';
+import React from "react";
 
-const View= (props) => {
+const View = (props) => {
+  const [viewHTML1, setViewHTML1] = useState();
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   let data = {};
-  try {
-    let tran = props.countryData[0].translations
-    let result =[]
-    for (var key in tran) {
-      result.push([key])
+  useEffect(() => {
+    setViewHTML1(() => view1());
+  }, [props.countryData]);
+
+  let view1 = () => {
+    try {
+      return (
+        <div style={{textAlign:"center"}}>
+          <h1 style={{ textAlign: "center" }}>
+            {props.countryData[0].name.official}
+          </h1>
+          <div>
+            <img
+              style={{ maxWidth: "40%", maxHeight: "30%" }}
+              src={props.countryData[0].flags.png}
+            />
+            <img
+              style={{  maxHeight: "30%",maxWidth: "40%" }}
+              src={props.countryData[0].coatOfArms.png}
+            />
+          </div>
+          <div
+            style={{
+              display: "inline-flex",
+              marginLeft: "10%",
+              marginTop: "10%",
+            }}
+          >
+            <h3 style={{ marginLeft: "10%" }}>
+              Capital City is {props.countryData[0].capital[0]}
+            </h3>
+            <h3 style={{ marginLeft: "10%" }}>
+              Population is {props.countryData[0].population}
+            </h3>
+            <h3 style={{ marginLeft: "10%" }}>
+              Area is {props.countryData[0].area}
+            </h3>
+          </div>
+        </div>
+      );
+    } catch (error) {
+      return <h1>API ERROR</h1>;
     }
-    data = {
-      name: props.countryData[0].name.official,
-      capital: props.countryData[0].capital[0],
-      coatOfArm: props.countryData[0].coatOfArms.png,
-      continent: props.countryData[0].continents,
-      currencies: props.countryData[0].currencies.Object.key(),
-      flags: props.countryData[0].flags.png,
-      population: props.countryData[0].population,
-      translations: tran
-    };
-  } catch (error) {
-    data = {};
-  }
+  };
   const [viewChange, setViewChange] = useState(1);
   return (
     <div className="view-container">
@@ -36,11 +62,7 @@ const View= (props) => {
         <button onClick={() => setViewChange(3)}>Data</button>
         <button onClick={() => setViewChange(4)}>Chart</button>
       </div>
-      {viewChange == 1 && (
-        <div>
-          
-        </div>
-      )}
+      {viewChange == 1 && viewHTML1}
       {viewChange == 2 && (
         <div>
           <h1>This is View port 2</h1>

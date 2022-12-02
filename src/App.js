@@ -296,16 +296,6 @@ function App() {
       },
     };
     let data = [];
-    // axios.request(options).then(function (response) {
-    //   console.log(response.data);
-    //   data = response.data.split("\n")
-    //   data.pop()
-    //   console.log(data);
-    //   setPrice(data);
-    //   console.log(price);
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
 
     let temp = player1;
     for (let i = 0; i < 48; i++) {
@@ -315,6 +305,7 @@ function App() {
     setPlayer1(temp);
     // setPrice([5,15,5,15,5,15,5,15,5,15,5,15,5,15,5,15])
     setPrice(data);
+    
   }, []);
 
   return (
@@ -360,6 +351,9 @@ function App() {
                 manu={manu}
                 setManu={setManu}
                 countryData={countryData}
+                searchCountry={searchCountry}
+                setCountryData={setCountryData}
+                setCountryHoliday={setCountryHoliday}
               />
             }
           />
