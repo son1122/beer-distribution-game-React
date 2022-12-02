@@ -276,6 +276,7 @@ function App() {
   const [country, setCountry] = useState(null);
   const [countryData, setCountryData] = useState([]);
   const [countryHoliday, setCountryHoliday] = useState([]);
+  const [searchCountry,setSearchCountry]=useState("")
   useEffect(() => {
     const options = {
       method: "GET",
@@ -330,6 +331,8 @@ function App() {
                 setCountry={setCountry}
                 setCountryData={setCountryData}
                 setCountryHoliday={setCountryHoliday}
+                searchCountry={searchCountry}
+                setSearchCountry={setSearchCountry}
               />
             }
           />

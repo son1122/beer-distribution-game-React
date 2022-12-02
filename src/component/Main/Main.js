@@ -9,7 +9,14 @@ const Main = (props) => {
   let list = props.countryCode.map((loop, index) => {
     return (
       <p
-        key={index}
+        style={
+          ((loop.code.split("").includes(props.searchCountry.toUpperCase()) ||
+            loop.code == props.searchCountry.toUpperCase()) &&
+          props.searchCountry != "")||props.searchCountry == ""
+            ? {}
+            : { display: "none" }
+        }
+        key={loop.code}
         onClick={() => {
           props.setCountry(loop.code);
         }}
@@ -57,7 +64,7 @@ const Main = (props) => {
                 target="_blank"
                 href="https://github.com/son1122/beer-distribution-game-React"
               >
-                HERE 
+                HERE
               </a>
               If you have any Suggestion or anything Please let me know.Thank
               you every one for your attention
@@ -68,45 +75,62 @@ const Main = (props) => {
         {infoPage == 2 && (
           <div>
             <h2 style={{ textAlign: "center" }}>Feature List</h2>
-            <ul style={{marginLeft : "10%"}}>
-            <li style={{fontSize : "1.2em"}}>Playable Beer Distribution Game</li>
-              <li style={{fontSize : "1.2em"}}>Sale Number That Reatrailer receive is affect by Country Event and Holiday</li>
-              <li style={{fontSize : "1.2em"}}>Sale Number That Reatrailer receive True random</li>
-              <li style={{fontSize : "1.2em"}}>48 Turn Game = year and 1 Turn = 1 weak of the month</li>
-              <li style={{fontSize : "1.2em"}}>4 Player Local Game</li>
-              <li style={{fontSize : "1.2em"}}>Each Player COST of operation</li>
-              <li style={{fontSize : "1.2em"}}>Chart , data and Summary of Each Player</li>
-
+            <ul style={{ marginLeft: "10%" }}>
+              <li style={{ fontSize: "1.2em" }}>
+                Playable Beer Distribution Game
+              </li>
+              <li style={{ fontSize: "1.2em" }}>
+                Sale Number That Reatrailer receive is affect by Country Event
+                and Holiday
+              </li>
+              <li style={{ fontSize: "1.2em" }}>
+                Sale Number That Reatrailer receive True random
+              </li>
+              <li style={{ fontSize: "1.2em" }}>
+                48 Turn Game = year and 1 Turn = 1 weak of the month
+              </li>
+              <li style={{ fontSize: "1.2em" }}>4 Player Local Game</li>
+              <li style={{ fontSize: "1.2em" }}>
+                Each Player COST of operation
+              </li>
+              <li style={{ fontSize: "1.2em" }}>
+                Chart , data and Summary of Each Player
+              </li>
             </ul>
             <h2 style={{ textAlign: "center" }}>Functional List </h2>
-            <ul style={{marginLeft : "10%"}}>
-              <li style={{fontSize : "1.2em"}}>true random number generator (TRNG) from <a
-                target="_blank"
-                href="https://www.random.org/"
-              >
-                APIs
-              </a></li>
-              <li style={{fontSize : "1.2em"}}>React Chart from Google<a
-                target="_blank"
-                href="https://www.react-google-charts.com/"
-              >
-                Chart
-              </a></li>
-              <li style={{fontSize : "1.2em"}}>Holiday DATA by api-ninjas.com<a
-                target="_blank"
-                href="https://api-ninjas.com/api/holidays"
-              >
-                APIs
-              </a></li>
-              <li style={{fontSize : "1.2em"}}>Country DATA by restcountries.com<a
-                target="_blank"
-                href="https://restcountries.com/v3.1/alpha?codes=th"
-              >
-                APIs
-              </a></li>
-          
+            <ul style={{ marginLeft: "10%" }}>
+              <li style={{ fontSize: "1.2em" }}>
+                true random number generator (TRNG) from{" "}
+                <a target="_blank" href="https://www.random.org/">
+                  APIs
+                </a>
+              </li>
+              <li style={{ fontSize: "1.2em" }}>
+                React Chart from Google
+                <a target="_blank" href="https://www.react-google-charts.com/">
+                  Chart
+                </a>
+              </li>
+              <li style={{ fontSize: "1.2em" }}>
+                Holiday DATA by api-ninjas.com
+                <a target="_blank" href="https://api-ninjas.com/api/holidays">
+                  APIs
+                </a>
+              </li>
+              <li style={{ fontSize: "1.2em" }}>
+                Country DATA by restcountries.com
+                <a
+                  target="_blank"
+                  href="https://restcountries.com/v3.1/alpha?codes=th"
+                >
+                  APIs
+                </a>
+              </li>
             </ul>
-            <p style={{ textAlign: "center" ,marginLeft : "10%"}}>**Thank you every developer who contribute and provide all data and API**</p>
+            <p style={{ textAlign: "center", marginLeft: "10%" }}>
+              **Thank you every developer who contribute and provide all data
+              and API**
+            </p>
           </div>
         )}
         {infoPage == 3 && (
@@ -130,6 +154,10 @@ const Main = (props) => {
         <h2>Country List For you to Select</h2>
         {props.country == null && (
           <input
+            onChange={(e) => {
+              console.log(e.target.value);
+              props.setSearchCountry(e.target.value);
+            }}
             type="text"
             id="search"
             name="Search Country"
@@ -152,44 +180,49 @@ const Main = (props) => {
           <button
             onClick={() => {
               let options = {
-                method: 'GET',
-                url: 'https://holidays-by-api-ninjas.p.rapidapi.com/v1/holidays/',
+                method: "GET",
+                url: "https://holidays-by-api-ninjas.p.rapidapi.com/v1/holidays/",
                 headers: {
-                  'X-RapidAPI-Key': '9fb954e0d0msh1fcc78ff571276ap1e3d63jsnf114407345b7',
-                  'X-RapidAPI-Host': 'holidays-by-api-ninjas.p.rapidapi.com'
+                  "X-RapidAPI-Key":
+                    "9fb954e0d0msh1fcc78ff571276ap1e3d63jsnf114407345b7",
+                  "X-RapidAPI-Host": "holidays-by-api-ninjas.p.rapidapi.com",
                 },
                 params: {
                   country: "th",
-                  year : 2021
-
-                }
+                  year: 2021,
+                },
               };
-              let data = []
-              axios.request(options).then(function (response) {
-                console.log(response.data);
-                props.setCountryHoliday(response.data)
-              }).catch(function (error) {
-                console.error(error);
-              });
+              let data = [];
+              axios
+                .request(options)
+                .then(function (response) {
+                  console.log(response.data);
+                  props.setCountryHoliday(response.data);
+                })
+                .catch(function (error) {
+                  console.error(error);
+                });
 
               options = {
-                method: 'GET',
-                url: 'https://restcountries.com/v3.1/alpha',
-                headers: {
-                },
+                method: "GET",
+                url: "https://restcountries.com/v3.1/alpha",
+                headers: {},
                 params: {
-                  codes:"th"
-                }
+                  codes: "th",
+                },
               };
-              data = []
-              axios.request(options).then(function (response) {
-                console.log(response.data);
-                props.setCountryData(response.data)
-              }).catch(function (error) {
-                console.error(error);
-              });
+              data = [];
+              axios
+                .request(options)
+                .then(function (response) {
+                  console.log(response.data);
+                  props.setCountryData(response.data);
+                })
+                .catch(function (error) {
+                  console.error(error);
+                });
 
-              return navigate("/game")
+              return navigate("/game");
             }}
             style={{ width: "30%", height: "25%" }}
           >
