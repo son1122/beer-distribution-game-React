@@ -359,6 +359,7 @@ function App() {
                 setPlayer4={setPlayer4}
                 manu={manu}
                 setManu={setManu}
+                countryData={countryData}
               />
             }
           />

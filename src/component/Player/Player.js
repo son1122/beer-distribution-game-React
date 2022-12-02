@@ -10,7 +10,10 @@ const Player = (props) => {
     <div>
       {props.country != null && (
         <div className="container">
-          <View whoplay={props.whoPlay} />
+          <View 
+            whoplay={props.whoPlay}
+            countryData={props.countryData}
+          />
           <Control
             setWhoPlay={props.setWhoPlay}
             whoPlay={props.whoPlay}
