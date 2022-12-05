@@ -1,0 +1,27 @@
+.view-button{
+        min-width: 100%;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto;
+}
+.view-button button{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.view-container{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 10% auto;
+        justify-items: center;
+}
+.collapsible .content {
+        padding: 6px;
+        background-color: #eeeeee;
+    }
+    .collapsible .header {
+        background-color: #dddddd;
+        padding: 6px;
+        cursor: pointer;
+    }

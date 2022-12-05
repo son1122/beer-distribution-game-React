@@ -29,7 +29,7 @@ const Control = (props) => {
         setCurrent(props.player1);
         break;
     }
-  });
+  },[props.player,]);
 
   let data;
   let [data1, data2, data3, data4] = [];

@@ -11,7 +11,7 @@ const Header = (props) => {
         <nav>
           <Link to  = "/">
           <img
-            src="https://i.pinimg.com/736x/6e/24/41/6e24416dc6d19a79272eef27a28d83ec.jpg"
+            src={require("../../image/beer.jpg")}
             alt=""
           />
           

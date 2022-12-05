@@ -2,12 +2,9 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Route, Routes, Link, Navigate } from "react-router-dom";
 import Header from "./component/Header/Header";
-import View from "./component/View/View";
 import Main from "./component/Main/Main";
 import About from "./component/About/About";
 import Player from "./component/Player/Player";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
 
 const countryCode = [
   { code: "AF", name: "Afghanistan" },
@@ -354,6 +351,7 @@ function App() {
                 searchCountry={searchCountry}
                 setCountryData={setCountryData}
                 setCountryHoliday={setCountryHoliday}
+                countryHoliday={countryHoliday}
               />
             }
           />

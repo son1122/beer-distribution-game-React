@@ -5,15 +5,13 @@ import React from "react";
 
 const View = (props) => {
   const [viewHTML1, setViewHTML1] = useState();
-    const [viewHTML2, setViewHTML2] = useState();
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   let data = {};
   useEffect(() => {
     setViewHTML1(() => view1());
-      setViewHTML2(() => view2())
-  }, [props.countryData,props.countryHoliday]);
+  }, [props.countryData]);
 
   let view1 = () => {
     try {
@@ -55,32 +53,6 @@ const View = (props) => {
       return <h1>API ERROR</h1>;
     }
   };
-
-
-    let view2 = () => {
-        console.log(props.countryHoliday[0])
-        let list = props.countryHoliday.map((loop,index)=>{
-
-            return(
-                <div>
-                    <h2>{index+1}. {loop.name}</h2>
-                    <h3>{loop.date}</h3>
-                    <h3>{loop.type}</h3>
-                </div>
-            )
-        })
-        try {
-            return (
-                <div>
-                    {list}
-
-                </div>
-            );
-        } catch (error) {
-            return <h1>API ERROR</h1>;
-        }
-    };
-
   const [viewChange, setViewChange] = useState(1);
   return (
     <div className="view-container">
@@ -91,7 +63,22 @@ const View = (props) => {
         <button onClick={() => setViewChange(4)}>Performance Chart</button>
       </div>
       {viewChange == 1 && viewHTML1}
-      {viewChange == 2 && viewHTML2}
+      {viewChange == 2 && (
+        <div>
+          <h1>This is View port 2</h1>
+          <Chart
+            chartType="ScatterChart"
+            data={[
+              ["Age", "Weight"],
+              [4, 5.5],
+              [8, 12],
+            ]}
+            width="100%"
+            height="80%"
+            legendToggle
+          />
+        </div>
+      )}
       {viewChange == 3 && (
         <div>
           <h1>This is View port 3</h1>
