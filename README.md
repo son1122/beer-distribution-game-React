@@ -1,7 +1,7 @@
 <h1 style="font-size:300%;"><img width="30" alt="Screenshot 2565-11-16 at 14 05 55" src="https://cdn-icons-png.flaticon.com/512/761/761777.png"> Beer Distribution Game</h1>
 
 
-This is Tower OF Hanoi Game with some function for everyone to play a game
+Beer Distribution Game that empower interactive by Using APIs Data
 
 Original Online Multiplay Beer Game : https://beergame.masystem.se/
 
