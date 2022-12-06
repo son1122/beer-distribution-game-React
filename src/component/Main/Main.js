@@ -7,16 +7,14 @@ const Main = (props) => {
   const [infoPage, setInfoPage] = useState(1);
   let maxPage = 4;
 
-  
-
-
   let list = props.countryCode.map((loop, index) => {
     return (
       <p
         style={
           ((loop.code.split("").includes(props.searchCountry.toUpperCase()) ||
             loop.code == props.searchCountry.toUpperCase()) &&
-          props.searchCountry != "")||props.searchCountry == ""
+            props.searchCountry != "") ||
+          props.searchCountry == ""
             ? {}
             : { display: "none" }
         }
@@ -64,7 +62,8 @@ const Main = (props) => {
               more fun with adaptive Simulation game you can find source code{" "}
               <a
                 target="_blank"
-                href="https://github.com/son1122/beer-distribution-game-React" rel="noreferrer"
+                href="https://github.com/son1122/beer-distribution-game-React"
+                rel="noreferrer"
               >
                 HERE
               </a>
@@ -103,19 +102,31 @@ const Main = (props) => {
             <ul style={{ marginLeft: "10%" }}>
               <li style={{ fontSize: "1.2em" }}>
                 true random number generator (TRNG) from{" "}
-                <a target="_blank" href="https://www.random.org/" rel="noreferrer">
+                <a
+                  target="_blank"
+                  href="https://www.random.org/"
+                  rel="noreferrer"
+                >
                   APIs
                 </a>
               </li>
               <li style={{ fontSize: "1.2em" }}>
                 React Chart from Google
-                <a target="_blank" href="https://www.react-google-charts.com/" rel="noreferrer">
+                <a
+                  target="_blank"
+                  href="https://www.react-google-charts.com/"
+                  rel="noreferrer"
+                >
                   Chart
                 </a>
               </li>
               <li style={{ fontSize: "1.2em" }}>
                 Holiday DATA by api-ninjas.com
-                <a target="_blank" href="https://api-ninjas.com/api/holidays" rel="noreferrer">
+                <a
+                  target="_blank"
+                  href="https://api-ninjas.com/api/holidays"
+                  rel="noreferrer"
+                >
                   APIs
                 </a>
               </li>
@@ -123,7 +134,8 @@ const Main = (props) => {
                 Country DATA by restcountries.com
                 <a
                   target="_blank"
-                  href="https://restcountries.com/v3.1/alpha?codes=th" rel="noreferrer"
+                  href="https://restcountries.com/v3.1/alpha?codes=th"
+                  rel="noreferrer"
                 >
                   APIs
                 </a>
@@ -138,20 +150,32 @@ const Main = (props) => {
         {infoPage == 3 && (
           <div>
             <h2 style={{ textAlign: "center" }}>How to Play a Game</h2>
-            <h3 >
-              &emsp;&emsp;&emsp;&emsp; Step
-            </h3>
-            <p>&emsp;&emsp;&emsp;&emsp;&emsp; 1. Select Country To Play (careful each country will affect you)</p>
+            <h3>&emsp;&emsp;&emsp;&emsp; Step</h3>
+            <p>
+              &emsp;&emsp;&emsp;&emsp;&emsp; 1. Select Country To Play (careful
+              each country will affect you)
+            </p>
             <p>&emsp;&emsp;&emsp;&emsp;&emsp; 2. Start Button </p>
             <p>&emsp;&emsp;&emsp;&emsp;&emsp; 3. Select Role to play</p>
-            <p>&emsp;&emsp;&emsp;&emsp;&emsp; 4. Play until the end of the year and Review Your Result</p>
+            <p>
+              &emsp;&emsp;&emsp;&emsp;&emsp; 4. Play until the end of the year
+              and Review Your Result
+            </p>
           </div>
         )}
         {infoPage == 4 && (
           <div>
             <h2 style={{ textAlign: "center" }}>Curios about RESULT ?? ME 2</h2>
             <h3 style={{ marginLeft: "6%", marginRight: "10%" }}>
-              &emsp;&emsp;&emsp;&emsp;&emsp; Result
+              &emsp;&emsp;&emsp;&emsp;&emsp; For Result Each Player should Show
+              1.Stock 2.Cost 3. BackLog Each player should has
+              minimum cost operation you can see more how to review at
+              <a
+                  target="_blank"
+                  href="https://opexlearning.com/resources/the-bullwhip-effect/310/"
+                  rel="noreferrer"
+                >Here</a>
+                <img src={require=("../../image/chart.jpg")}/>
             </h3>
           </div>
         )}
@@ -185,8 +209,7 @@ const Main = (props) => {
         {props.country != null && (
           <button
             onClick={() => {
-              navigate("/game")
-                
+              navigate("/game");
             }}
             style={{ width: "30%", height: "25%" }}
           >

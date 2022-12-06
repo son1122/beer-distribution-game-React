@@ -242,7 +242,7 @@ const Control = (props) => {
           }}
         >
           <input type="text" id="value" name="value"></input>
-          <input type="submit" value="Submit"></input>
+          {props.turn<=48&&<input type="submit" value="Submit"></input>}
         </form>
       </div>
     </div>

@@ -2,94 +2,66 @@ import { useEffect, useState } from "react";
 import "./View.css";
 import { Chart } from "react-google-charts";
 import React from "react";
-import {data, options} from "../Chart/Chart";
+import { data, options } from "../Chart/Chart";
 // import "../View3/View3"
 
 const View = (props) => {
-    let dataGraph =[]
-    const options = {
-        chart: {
-            title: "Player Realtime Performance Chart",
-            subtitle: "stock cost 2 , backlog 10",
-        },
-    };
-    const currentArray = [1,12,23]
-    useEffect(() => {
-        console.log(props.player);
-        switch (props.player) {
-            case 1:
-              console.log("1")
-                dataGraph = [
-                    [
-                        "Turn Play(WEEK)",
-                        "Stock",
-                        "Backlog",
-                        "Cost",
-                    ],
-                    currentArray,
-                    currentArray,
-                    currentArray,
-                ];
-                break;
-            case 2:
-              console.log("2")
-                dataGraph = [
-                    [
-                        "Turn Play(WEEK)",
-                        "Stock",
-                        "Backlog",
-                        "Cost",
-                    ],
-                    currentArray,
-                    currentArray
-                ];
-                break;
-            case 3:
-              console.log("3")
-                dataGraph = [
-                    [
-                        "Turn Play(WEEK)",
-                        "Stock",
-                        "Backlog",
-                        "Cost",
-                    ],
-                    currentArray,
-                    currentArray
-                ];
-                break;
-            case 4:
-              console.log("4")
-                dataGraph = [
-                    [
-                        "Turn Play(WEEK)",
-                        "Stock",
-                        "Backlog",
-                        "Cost",
-                    ],
-                    currentArray,
-                    currentArray
-                ];
-                break;
-            default:
-              console.log("default")
-                dataGraph = [
-                    [
-                        "Turn Play(WEEK)",
-                        "Stock",
-                        "Backlog",
-                        "Cost",
-                    ],
-                    currentArray,
-                    currentArray,
-                    currentArray
-
-                ];
-                break;
-        }
-    },[props.player,]);
+  const [dataGraph,setDataGraph] = useState([])
+  const options = {
+    chart: {
+      title: "Player Realtime Performance Chart",
+      subtitle: "stock cost 2 , backlog 10",
+    },
+  };
+  const currentArray = [1, 120, 0 , 12];
+  const currentArray2 = [2, 12, 130 , 30];
+  const currentArray3 = [3, 250, 10 , 150];
+  useEffect(() => {
+    switch (props.player) {
+      case 1:
+        console.log("1");
+        setDataGraph ([
+          ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
+          currentArray,
+          currentArray2,
+          currentArray3,
+          
+        ])
+        break;
+      case 2:
+        // console.log("2");
+        // dataGraph = [["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],currentArray,currentArray,];
+        break;
+      case 3:
+        console.log("3");
+        // dataGraph = [
+        //   ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
+        //   currentArray,
+        //   currentArray,
+        // ];
+        break;
+      case 4:
+        console.log("4");
+        // dataGraph = [
+        //   ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
+        //   currentArray,
+        //   currentArray,
+        // ];
+        break;
+      default:
+        console.log("default");
+        // dataGraph = [
+        //   ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
+        //   currentArray,
+        //   currentArray,
+        //   currentArray,
+        // ];
+        break;
+    }
+  }, [props.player]);
 
   const [viewHTML1, setViewHTML1] = useState();
-    const [viewHTML2, setViewHTML2] = useState();
+  const [viewHTML2, setViewHTML2] = useState();
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -97,13 +69,13 @@ const View = (props) => {
   let data = {};
   useEffect(() => {
     setViewHTML1(() => view1());
-    setViewHTML2(() => view2())
-  }, [props.countryData,props.countryHoliday]);
+    setViewHTML2(() => view2());
+  }, [props.countryData, props.countryHoliday]);
 
   let view1 = () => {
     try {
       return (
-        <div style={{textAlign:"center"}}>
+        <div style={{ textAlign: "center" }}>
           <h1 style={{ textAlign: "center" }}>
             {props.countryData[0].name.official}
           </h1>
@@ -113,7 +85,7 @@ const View = (props) => {
               src={props.countryData[0].flags.png}
             />
             <img
-              style={{  maxHeight: "30%",maxWidth: "40%" }}
+              style={{ maxHeight: "30%", maxWidth: "40%" }}
               src={props.countryData[0].coatOfArms.png}
             />
           </div>
@@ -141,35 +113,31 @@ const View = (props) => {
     }
   };
 
-
-    let view2 = () => {
-        let list = props.countryHoliday.map((loop,index)=>{
-
-            return(
-                <div>
-                    <h2>{index+1}. {loop.name}</h2>
-                    <h3>{loop.date}</h3>
-                    <h3>{loop.type}</h3>
-                </div>
-            )
-        })
-        try {
-            return (
-                <div>
-                    {list}
-
-                </div>
-            );
-        } catch (error) {
-            return <h1>API ERROR</h1>;
-        }
-    };
-    let viewHTML3 = () => {
-    return(
+  let view2 = () => {
+    let list = props.countryHoliday.map((loop, index) => {
+      return (
         <div>
-            <h2>Test</h2>
+          <h2>
+            {index + 1}. {loop.name}
+          </h2>
+          <h3>{loop.date}</h3>
+          <h3>{loop.type}</h3>
         </div>
-    )};
+      );
+    });
+    try {
+      return <div>{list}</div>;
+    } catch (error) {
+      return <h1>API ERROR</h1>;
+    }
+  };
+  let viewHTML3 = () => {
+    return (
+      <div>
+        <h2>Test</h2>
+      </div>
+    );
+  };
 
   const [viewChange, setViewChange] = useState(1);
   return (
@@ -182,21 +150,22 @@ const View = (props) => {
       </div>
       {viewChange == 1 && viewHTML1}
       {viewChange == 2 && viewHTML2}
-        {viewChange == 3 && (<div>
-                <h2>Beer Distribution Game</h2>
-                <h4></h4>
-
-            </div>)}
+      {viewChange == 3 && (
+        <div>
+          <h2>Beer Distribution Game</h2>
+          <h4></h4>
+        </div>
+      )}
       {viewChange == 4 && (
         <div>
-            <Chart
-                style={{width:"45vw",height:"90%",marginTop:"10%"}}
-                chartType="Line"
-                width="100%"
-                height="400px"
-                data={dataGraph}
-                options={options}
-            />
+          <Chart
+            style={{ width: "45vw", height: "90%", marginTop: "10%" }}
+            chartType="Line"
+            width="100%"
+            height="400px"
+            data={dataGraph}
+            options={options}
+          />
         </div>
       )}
     </div>
