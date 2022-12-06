@@ -5,6 +5,11 @@ import Control from "../Control/Control";
 import "./Player.css";
 import axios from "axios";
 const Player = (props) => {
+    const [his1,setHis1] = useState([])
+    const [his2,setHis2] = useState([])
+    const [his3,setHis3] = useState([])
+    const [his4,setHis4] = useState([])
+
 
   useEffect(() => {
       if(props.country!=null&&props.countryData[0]==undefined){
@@ -65,6 +70,7 @@ const Player = (props) => {
             setCountryData={props.setCountryData}
             setCountryHoliday={props.setCountryHoliday}
             countryHoliday={props.countryHoliday}
+            player={props.player}
           />
           <Control
             setWhoPlay={props.setWhoPlay}
@@ -84,6 +90,14 @@ const Player = (props) => {
             setPlayer4={props.setPlayer4}
             manu={props.manu}
             setManu={props.setManu}
+            his1={his1}
+            his2={his2}
+            his3={his3}
+            his4={his4}
+            setHis1={setHis1}
+            setHis2={setHis2}
+            setHis3={setHis3}
+            setHis4={setHis4}
           />
         </div>
       )}

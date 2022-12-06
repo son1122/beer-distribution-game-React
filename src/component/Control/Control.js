@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 const Control = (props) => {
   const [current, setCurrent] = useState(props.player1);
   useEffect(() => {
-    // console.log(current);
     switch (props.player) {
       case 1:
         props.setWhoPlay("Reatrailer");
@@ -30,6 +29,21 @@ const Control = (props) => {
         break;
     }
   },[props.player,]);
+
+  useEffect(() => {
+    props.setHis1([...props.his1, props.player1])
+  },[props.player1]);
+  useEffect(() => {
+    props.setHis2([...props.his2, props.player2])
+  },[props.player2]);
+  useEffect(() => {
+    props.setHis3([...props.his3, props.player3])
+  },[props.player3]);
+  useEffect(() => {
+    props.setHis4([...props.his4, props.player4])
+  },[props.player4]);
+
+
 
   let data;
   let [data1, data2, data3, data4] = [];
@@ -177,6 +191,7 @@ const Control = (props) => {
       backlog = backlog + Math.abs(stock);
       stock = 0;
     }
+    cost = stock*2+backlog*10
     let result = [stock, backlog, cost, sale, order, getOrder, sendOrder];
     return result;
   };

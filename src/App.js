@@ -5,6 +5,7 @@ import Header from "./component/Header/Header";
 import Main from "./component/Main/Main";
 import About from "./component/About/About";
 import Player from "./component/Player/Player";
+import axios from "axios";
 
 const countryCode = [
   { code: "AF", name: "Afghanistan" },
@@ -258,9 +259,9 @@ function App() {
   const [para, setPara] = useState(); //stock cost , back log cost , turn number , holiday amp
   const [player, setPlayer] = useState(1);
   //player 1 retailer
-  //player 2 wholsale
+  //player 2 wholsaler
   //player 3 distributor
-  //player 4 manufactoring
+  //player 4 manufacturing
   const [player1, setPlayer1] = useState([100, 0, 0, 0, 0, 0, 0]); //stock,backlog,cost,sale,order,getOrder,sendOrder
   const [player2, setPlayer2] = useState([200, 0, 0, 0, 0, 0, 0]); //stock,backlog,cost,sale,order,getOrder,sendOrder
   const [player3, setPlayer3] = useState([300, 0, 0, 0, 0, 0, 0]); //stock,backlog,cost,sale,order,getOrder,sendOrder
@@ -283,7 +284,7 @@ function App() {
         // 'X-RapidAPI-Host': 'public-holiday.p.rapidapi.com'
       },
       params: {
-        num: 5,
+        num: 48,
         min: 10,
         max: 50,
         col: 1,
@@ -293,15 +294,34 @@ function App() {
       },
     };
     let data = [];
-
-    let temp = player1;
+    
     for (let i = 0; i < 48; i++) {
       data.push(15);
     }
-    temp[3] = data[0];
-    setPlayer1(temp);
-    // setPrice([5,15,5,15,5,15,5,15,5,15,5,15,5,15,5,15])
-    setPrice(data);
+    axios.request(options).then(function (response) {
+        console.log(response.data);
+        data = response.data.split("\n")
+        data.pop()
+        setPrice(data);
+        let temp = player1;
+        temp[3] = data[0];
+        setPlayer1(temp);
+      }).catch(function (error) {
+        console.error(error);
+      });
+    // axios
+    //     .request(options)
+    //     .then(function (response) {
+    //       console.log(response.data);
+    //       setPlayer1(response.data[0]);
+    //       setPrice(response.data);
+    //     })
+    //     .catch(function (error) {
+    //       console.error(error);
+    //     });
+    // temp[3] = data[0];
+    // setPlayer1(temp);
+    // setPrice(data);
     
   }, []);
 

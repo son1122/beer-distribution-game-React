@@ -23,7 +23,6 @@
   }
   .country-list{
     overflow: scroll;
-    overflow-y:scroll; 
     position:relative;
     min-height: 400px;
     max-height:75vh;
@@ -49,8 +48,8 @@ p:hover {
 }
 
 .previous {
-  background-color: #f1f1f1;
-  color: black;
+  background-color: #04AA6D;
+  color: white;
 }
 
 .next {

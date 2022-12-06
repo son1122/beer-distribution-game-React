@@ -11,7 +11,7 @@
       min-width: 100vw;
       display: grid;
       grid-template-columns: auto;
-      grid-template-rows: 90vh auto;
+      grid-template-rows: auto auto;
     
     }
   }

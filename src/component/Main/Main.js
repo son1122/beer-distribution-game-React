@@ -64,7 +64,7 @@ const Main = (props) => {
               more fun with adaptive Simulation game you can find source code{" "}
               <a
                 target="_blank"
-                href="https://github.com/son1122/beer-distribution-game-React"
+                href="https://github.com/son1122/beer-distribution-game-React" rel="noreferrer"
               >
                 HERE
               </a>
@@ -103,19 +103,19 @@ const Main = (props) => {
             <ul style={{ marginLeft: "10%" }}>
               <li style={{ fontSize: "1.2em" }}>
                 true random number generator (TRNG) from{" "}
-                <a target="_blank" href="https://www.random.org/">
+                <a target="_blank" href="https://www.random.org/" rel="noreferrer">
                   APIs
                 </a>
               </li>
               <li style={{ fontSize: "1.2em" }}>
                 React Chart from Google
-                <a target="_blank" href="https://www.react-google-charts.com/">
+                <a target="_blank" href="https://www.react-google-charts.com/" rel="noreferrer">
                   Chart
                 </a>
               </li>
               <li style={{ fontSize: "1.2em" }}>
                 Holiday DATA by api-ninjas.com
-                <a target="_blank" href="https://api-ninjas.com/api/holidays">
+                <a target="_blank" href="https://api-ninjas.com/api/holidays" rel="noreferrer">
                   APIs
                 </a>
               </li>
@@ -123,7 +123,7 @@ const Main = (props) => {
                 Country DATA by restcountries.com
                 <a
                   target="_blank"
-                  href="https://restcountries.com/v3.1/alpha?codes=th"
+                  href="https://restcountries.com/v3.1/alpha?codes=th" rel="noreferrer"
                 >
                   APIs
                 </a>
@@ -138,9 +138,13 @@ const Main = (props) => {
         {infoPage == 3 && (
           <div>
             <h2 style={{ textAlign: "center" }}>How to Play a Game</h2>
-            <h3 style={{ marginLeft: "6%", marginRight: "10%" }}>
-              &emsp;&emsp;&emsp;&emsp;&emsp; Step
+            <h3 >
+              &emsp;&emsp;&emsp;&emsp; Step
             </h3>
+            <p>&emsp;&emsp;&emsp;&emsp;&emsp; 1. Select Country To Play (careful each country will affect you)</p>
+            <p>&emsp;&emsp;&emsp;&emsp;&emsp; 2. Start Button </p>
+            <p>&emsp;&emsp;&emsp;&emsp;&emsp; 3. Select Role to play</p>
+            <p>&emsp;&emsp;&emsp;&emsp;&emsp; 4. Play until the end of the year and Review Your Result</p>
           </div>
         )}
         {infoPage == 4 && (

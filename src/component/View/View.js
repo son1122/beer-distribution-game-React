@@ -2,17 +2,102 @@ import { useEffect, useState } from "react";
 import "./View.css";
 import { Chart } from "react-google-charts";
 import React from "react";
+import {data, options} from "../Chart/Chart";
+// import "../View3/View3"
 
 const View = (props) => {
+    let dataGraph =[]
+    const options = {
+        chart: {
+            title: "Player Realtime Performance Chart",
+            subtitle: "stock cost 2 , backlog 10",
+        },
+    };
+    const currentArray = [1,12,23]
+    useEffect(() => {
+        console.log(props.player);
+        switch (props.player) {
+            case 1:
+              console.log("1")
+                dataGraph = [
+                    [
+                        "Turn Play(WEEK)",
+                        "Stock",
+                        "Backlog",
+                        "Cost",
+                    ],
+                    currentArray,
+                    currentArray,
+                    currentArray,
+                ];
+                break;
+            case 2:
+              console.log("2")
+                dataGraph = [
+                    [
+                        "Turn Play(WEEK)",
+                        "Stock",
+                        "Backlog",
+                        "Cost",
+                    ],
+                    currentArray,
+                    currentArray
+                ];
+                break;
+            case 3:
+              console.log("3")
+                dataGraph = [
+                    [
+                        "Turn Play(WEEK)",
+                        "Stock",
+                        "Backlog",
+                        "Cost",
+                    ],
+                    currentArray,
+                    currentArray
+                ];
+                break;
+            case 4:
+              console.log("4")
+                dataGraph = [
+                    [
+                        "Turn Play(WEEK)",
+                        "Stock",
+                        "Backlog",
+                        "Cost",
+                    ],
+                    currentArray,
+                    currentArray
+                ];
+                break;
+            default:
+              console.log("default")
+                dataGraph = [
+                    [
+                        "Turn Play(WEEK)",
+                        "Stock",
+                        "Backlog",
+                        "Cost",
+                    ],
+                    currentArray,
+                    currentArray,
+                    currentArray
+
+                ];
+                break;
+        }
+    },[props.player,]);
+
   const [viewHTML1, setViewHTML1] = useState();
     const [viewHTML2, setViewHTML2] = useState();
+
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   let data = {};
   useEffect(() => {
     setViewHTML1(() => view1());
-      setViewHTML2(() => view2())
+    setViewHTML2(() => view2())
   }, [props.countryData,props.countryHoliday]);
 
   let view1 = () => {
@@ -58,7 +143,6 @@ const View = (props) => {
 
 
     let view2 = () => {
-        console.log(props.countryHoliday[0])
         let list = props.countryHoliday.map((loop,index)=>{
 
             return(
@@ -80,6 +164,12 @@ const View = (props) => {
             return <h1>API ERROR</h1>;
         }
     };
+    let viewHTML3 = () => {
+    return(
+        <div>
+            <h2>Test</h2>
+        </div>
+    )};
 
   const [viewChange, setViewChange] = useState(1);
   return (
@@ -92,36 +182,21 @@ const View = (props) => {
       </div>
       {viewChange == 1 && viewHTML1}
       {viewChange == 2 && viewHTML2}
-      {viewChange == 3 && (
-        <div>
-          <h1>This is View port 3</h1>
-          <Chart
-            chartType="ScatterChart"
-            data={[
-              ["Age", "Weight"],
-              [4, 5.5],
-              [8, 12],
-            ]}
-            width="100%"
-            height="50vh"
-            legendToggle
-          />
-        </div>
-      )}
+        {viewChange == 3 && (<div>
+                <h2>Beer Distribution Game</h2>
+                <h4></h4>
+
+            </div>)}
       {viewChange == 4 && (
         <div>
-          <h1>This is View port 4</h1>
-          <Chart
-            chartType="ScatterChart"
-            data={[
-              ["Age", "Weight"],
-              [4, 5.5],
-              [8, 12],
-            ]}
-            width="100%"
-            height="50vh"
-            legendToggle
-          />
+            <Chart
+                style={{width:"45vw",height:"90%",marginTop:"10%"}}
+                chartType="Line"
+                width="100%"
+                height="400px"
+                data={dataGraph}
+                options={options}
+            />
         </div>
       )}
     </div>
