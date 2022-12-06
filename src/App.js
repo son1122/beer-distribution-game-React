@@ -374,9 +374,6 @@ function App() {
                             />
                         }
                     />
-                    {/* <Route path="/currencies" element={<Currencies />}/> */}
-                    {/* <Route path="/price/:currency" element={<Price price={price} setPrice={setPrice}/>}/> */}
-                    {/* <Route path="currency" element={<Navigate to = "/currencies"/>}/> */}
                 </Routes>
             </div>
         </div>

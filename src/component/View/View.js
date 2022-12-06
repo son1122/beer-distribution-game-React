@@ -3,10 +3,11 @@ import "./View.css";
 import {Chart} from "react-google-charts";
 
 const View = (props) => {
+    const [dataGraph, setDataGraph] = useState()
     const [dataGraph1, setDataGraph1] = useState([["Turn Play(WEEK)", "Stock", "Backlog", "Cost"]])
-    const [dataGraph2, setDataGraph2] = useState([])
-    const [dataGraph3, setDataGraph3] = useState([])
-    const [dataGraph4, setDataGraph4] = useState([])
+    const [dataGraph2, setDataGraph2] = useState([["Turn Play(WEEK)", "Stock", "Backlog", "Cost"]])
+    const [dataGraph3, setDataGraph3] = useState([["Turn Play(WEEK)", "Stock", "Backlog", "Cost"]])
+    const [dataGraph4, setDataGraph4] = useState([["Turn Play(WEEK)", "Stock", "Backlog", "Cost"]])
 
     const options = {
         chart: {
@@ -32,32 +33,32 @@ const View = (props) => {
             case 2:
                 let graph2 = []
                 graph2.push(props.turn)
-                graph2.push(props.player1[0])
-                graph2.push(props.player1[1])
-                graph2.push(props.player1[2])
+                graph2.push(props.player2[0])
+                graph2.push(props.player2[1])
+                graph2.push(props.player2[2])
                 //stock,backlog,cost,sale,order,getOrder,sendOrder
-                console.log(graph2);
+                // console.log(graph2);
                 setDataGraph2([...dataGraph2, graph2])
                 break;
             case 3:
 
                 let graph3 = []
                 graph3.push(props.turn)
-                graph3.push(100)
-                graph3.push(20)
-                graph3.push(10)
+                graph3.push(props.player3[0])
+                graph3.push(props.player3[0])
+                graph3.push(props.player3[0])
                 //stock,backlog,cost,sale,order,getOrder,sendOrder
-                console.log(graph3);
+                // console.log(graph3);
                 setDataGraph3([...dataGraph3, graph3])
                 break;
             case 4:
                 let graph4 = []
                 graph4.push(props.turn)
-                graph4.push(100)
-                graph4.push(20)
-                graph4.push(10)
+                graph4.push(props.player4[0])
+                graph4.push(props.player4[0])
+                graph4.push(props.player4[0])
                 //stock,backlog,cost,sale,order,getOrder,sendOrder
-                console.log(graph4);
+                // console.log(graph4);
                 setDataGraph4([...dataGraph4, graph4])
                 break;
             default:
@@ -67,7 +68,7 @@ const View = (props) => {
                 graphD.push(20)
                 graphD.push(10)
                 //stock,backlog,cost,sale,order,getOrder,sendOrder
-                console.log(graphD);
+                // console.log(graphD);
                 break;
         }
     }, [props.player]);
@@ -173,7 +174,8 @@ const View = (props) => {
                     <h4>** at the end of turn cost of backlog = 5 **</h4>
                 </div>
             )}
-            {viewChange == 4 && (
+            {(props.player==1 && viewChange == 4) && (
+              
                 <div>
                     <Chart
                         style={{width: "45vw", height: "90%", marginTop: "10%"}}
@@ -185,6 +187,45 @@ const View = (props) => {
                     />
                 </div>
             )}
+            {(props.player==2 && viewChange == 4) && (
+              
+              <div>
+                  <Chart
+                      style={{width: "45vw", height: "90%", marginTop: "10%"}}
+                      chartType="Line"
+                      width="100%"
+                      height="400px"
+                      data={dataGraph2}
+                      options={options}
+                  />
+              </div>
+          )}
+          {(props.player==3 && viewChange == 4) && (
+              
+              <div>
+                  <Chart
+                      style={{width: "45vw", height: "90%", marginTop: "10%"}}
+                      chartType="Line"
+                      width="100%"
+                      height="400px"
+                      data={dataGraph3}
+                      options={options}
+                  />
+              </div>
+          )}
+          {(props.player==4 && viewChange == 4) && (
+              
+              <div>
+                  <Chart
+                      style={{width: "45vw", height: "90%", marginTop: "10%"}}
+                      chartType="Line"
+                      width="100%"
+                      height="400px"
+                      data={dataGraph4}
+                      options={options}
+                  />
+              </div>
+          )}
         </div>
     );
 };
