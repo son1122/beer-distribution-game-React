@@ -174,8 +174,8 @@ const View = (props) => {
                     <h4>** at the end of turn cost of backlog = 5 **</h4>
                 </div>
             )}
-            {(props.player==1 && viewChange == 4) && (
-              
+            {(props.player == 1 && viewChange == 4) && (
+
                 <div>
                     <Chart
                         style={{width: "45vw", height: "90%", marginTop: "10%"}}
@@ -187,45 +187,44 @@ const View = (props) => {
                     />
                 </div>
             )}
-            {(props.player==2 && viewChange == 4) && (
-              
-              <div>
-                  <Chart
-                      style={{width: "45vw", height: "90%", marginTop: "10%"}}
-                      chartType="Line"
-                      width="100%"
-                      height="400px"
-                      data={dataGraph2}
-                      options={options}
-                  />
-              </div>
-          )}
-          {(props.player==3 && viewChange == 4) && (
-              
-              <div>
-                  <Chart
-                      style={{width: "45vw", height: "90%", marginTop: "10%"}}
-                      chartType="Line"
-                      width="100%"
-                      height="400px"
-                      data={dataGraph3}
-                      options={options}
-                  />
-              </div>
-          )}
-          {(props.player==4 && viewChange == 4) && (
-              
-              <div>
-                  <Chart
-                      style={{width: "45vw", height: "90%", marginTop: "10%"}}
-                      chartType="Line"
-                      width="100%"
-                      height="400px"
-                      data={dataGraph4}
-                      options={options}
-                  />
-              </div>
-          )}
+            {(props.player == 2 && viewChange == 4) && (
+                <div>
+                    <Chart
+                        style={{width: "45vw", height: "90%", marginTop: "10%"}}
+                        chartType="Line"
+                        width="100%"
+                        height="400px"
+                        data={dataGraph2}
+                        options={options}
+                    />
+                </div>
+            )}
+            {(props.player == 3 && viewChange == 4) && (
+
+                <div>
+                    <Chart
+                        style={{width: "45vw", height: "90%", marginTop: "10%"}}
+                        chartType="Line"
+                        width="100%"
+                        height="400px"
+                        data={dataGraph3}
+                        options={options}
+                    />
+                </div>
+            )}
+            {(props.player == 4 && viewChange == 4) && (
+
+                <div>
+                    <Chart
+                        style={{width: "45vw", height: "90%", marginTop: "10%"}}
+                        chartType="Line"
+                        width="100%"
+                        height="400px"
+                        data={dataGraph4}
+                        options={options}
+                    />
+                </div>
+            )}
         </div>
     );
 };
