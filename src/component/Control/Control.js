@@ -188,7 +188,7 @@ const Control = (props) => {
             backlog = backlog + Math.abs(stock);
             stock = 0;
         }
-        cost = (cost+(stock * 2 + backlog * 10))/100
+        cost = cost+((stock * 2 + backlog * 10)/200)
         let result = [stock, backlog, cost, sale, order, getOrder, sendOrder];
         return result;
     };
