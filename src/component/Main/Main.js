@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Main.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import chart from "../../image/chart.png"
 const Main = (props) => {
   const navigate = useNavigate();
   const [infoPage, setInfoPage] = useState(1);
@@ -175,7 +176,7 @@ const Main = (props) => {
                   href="https://opexlearning.com/resources/the-bullwhip-effect/310/"
                   rel="noreferrer"
                 >Here</a>
-                <img src={require=("../../image/chart.jpg")}/>
+                <img src={chart}/>
             </h3>
           </div>
         )}
