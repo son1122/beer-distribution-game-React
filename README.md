@@ -19,6 +19,7 @@
       5. Multiplayer in Local and same screen Fashion
       6. Each Player COST of operation
       7. Chart , data and Summary of Each Player
+      8. Each Country will affect Starting Stock and Sale Number Base on population in that country (Comment Out)
 
 
 <h3>Function</h3>
@@ -77,8 +78,11 @@ Netlify Deploy URL : [https://jazzy-pothos-22f17c.netlify.app/](https://beer-dis
 
 <h2>Code Explain</h2>
 
-<img width="1196" alt="Screenshot 2565-11-17 at 14 32 53" src="https://user-images.githubusercontent.com/76699506/202384182-6f9ef80a-78ab-4698-8248-d2338e76c763.png">
 
+<img width="597" alt="Screenshot 2565-12-06 at 10 22 34" src="https://user-images.githubusercontent.com/76699506/205805448-72560027-f425-4d49-90ad-7b8ef4a3c856.png">
+<img width="537" alt="Screenshot 2565-12-06 at 10 23 32" src="https://user-images.githubusercontent.com/76699506/205805462-6a9f79ca-6ff3-4140-8c79-632dec71c1f7.png">
+<img width="658" alt="Screenshot 2565-12-06 at 10 26 16" src="https://user-images.githubusercontent.com/76699506/205805773-2201ba38-2085-4c7e-95b1-c9923fccdce5.png">
+<img width="666" alt="Screenshot 2565-12-06 at 10 26 49" src="https://user-images.githubusercontent.com/76699506/205805778-1411a205-1e32-49a9-b2c8-82dfef32c368.png">
 
 
 What would you do differently?
