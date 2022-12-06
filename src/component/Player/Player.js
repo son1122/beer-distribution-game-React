@@ -71,6 +71,11 @@ const Player = (props) => {
             setCountryHoliday={props.setCountryHoliday}
             countryHoliday={props.countryHoliday}
             player={props.player}
+            player1={props.player1}
+            player2={props.player2}
+            player3={props.player3}
+            player4={props.player4}
+            turn={props.turn}
           />
           <Control
             setWhoPlay={props.setWhoPlay}

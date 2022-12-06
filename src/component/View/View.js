@@ -5,8 +5,11 @@ import React from "react";
 import { data, options } from "../Chart/Chart";
 
 const View = (props) => {
-  const [dataGraph,setDataGraph] = useState([])
-  // setValue([...value, newvalue])
+  const [dataGraph1,setDataGraph1] = useState([["Turn Play(WEEK)", "Stock", "Backlog", "Cost"]])
+  const [dataGraph2,setDataGraph2] = useState([])
+  const [dataGraph3,setDataGraph3] = useState([])
+  const [dataGraph4,setDataGraph4] = useState([])
+  
   const options = {
     chart: {
       title: "Player Realtime Performance Chart",
@@ -19,49 +22,54 @@ const View = (props) => {
   useEffect(() => {
     switch (props.player) {
       case 1:
-        setDataGraph ([
-          ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
-          currentArray,
-          currentArray2,
-          currentArray3,
-          
-        ])
+  // setDataGraph ([["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],currentArray,currentArray2,currentArray3,])
+        let graph1 =[]
+        graph1.push(props.turn)
+        graph1.push(props.player1[0])
+        graph1.push(props.player1[1])
+        graph1.push(props.player1[2])
+        //stock,backlog,cost,sale,order,getOrder,sendOrder
+        setDataGraph1([...dataGraph1,graph1])
         break;
       case 2:
-        setDataGraph ([
-          ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
-          currentArray,
-          currentArray2,
-          currentArray3,
-          
-        ])
+        let graph2 =[]
+        graph2.push(props.turn)
+        graph2.push(props.player1[0])
+        graph2.push(props.player1[1])
+        graph2.push(props.player1[2])
+        //stock,backlog,cost,sale,order,getOrder,sendOrder
+        console.log(graph2);
+        setDataGraph2([...dataGraph2,graph2])
         break;
       case 3:
-        setDataGraph ([
-          ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
-          currentArray,
-          currentArray2,
-          currentArray3,
-          
-        ])
+        
+        let graph3 =[]
+        graph3.push(props.turn)
+        graph3.push(100)
+        graph3.push(20)
+        graph3.push(10)
+        //stock,backlog,cost,sale,order,getOrder,sendOrder
+        console.log(graph3);
+        setDataGraph3([...dataGraph3,graph3])
         break;
       case 4:
-        setDataGraph ([
-          ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
-          currentArray,
-          currentArray2,
-          currentArray3,
-          
-        ])
+        let graph4 =[]
+        graph4.push(props.turn)
+        graph4.push(100)
+        graph4.push(20)
+        graph4.push(10)
+        //stock,backlog,cost,sale,order,getOrder,sendOrder
+        console.log(graph4);
+        setDataGraph4([...dataGraph4,graph4])
         break;
       default:
-        setDataGraph ([
-          ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
-          currentArray,
-          currentArray2,
-          currentArray3,
-          
-        ])
+        let graphD =[]
+        graphD.push(props.turn)
+        graphD.push(100)
+        graphD.push(20)
+        graphD.push(10)
+        //stock,backlog,cost,sale,order,getOrder,sendOrder
+        console.log(graphD);
         break;
     }
   }, [props.player]);
@@ -122,7 +130,7 @@ const View = (props) => {
   let view2 = () => {
     let list = props.countryHoliday.map((loop, index) => {
       return (
-        <div>
+        <div key={index}>
           <h2>
             {index + 1}. {loop.name}
           </h2>
@@ -173,7 +181,7 @@ const View = (props) => {
             chartType="Line"
             width="100%"
             height="400px"
-            data={dataGraph}
+            data={dataGraph1}
             options={options}
           />
         </div>
