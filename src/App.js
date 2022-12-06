@@ -299,7 +299,6 @@ function App() {
       data.push(15);
     }
     axios.request(options).then(function (response) {
-        console.log(response.data);
         data = response.data.split("\n")
         data.pop()
         setPrice(data);

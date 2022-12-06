@@ -3,23 +3,22 @@ import "./View.css";
 import { Chart } from "react-google-charts";
 import React from "react";
 import { data, options } from "../Chart/Chart";
-// import "../View3/View3"
 
 const View = (props) => {
   const [dataGraph,setDataGraph] = useState([])
+  // setValue([...value, newvalue])
   const options = {
     chart: {
       title: "Player Realtime Performance Chart",
-      subtitle: "stock cost 2 , backlog 10",
+      subtitle: "stock cost 1 , backlog 5",
     },
   };
-  const currentArray = [1, 120, 0 , 12];
+  const currentArray = [1, 120, 0 , 12]
   const currentArray2 = [2, 12, 130 , 30];
   const currentArray3 = [3, 250, 10 , 150];
   useEffect(() => {
     switch (props.player) {
       case 1:
-        console.log("1");
         setDataGraph ([
           ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
           currentArray,
@@ -29,33 +28,40 @@ const View = (props) => {
         ])
         break;
       case 2:
-        // console.log("2");
-        // dataGraph = [["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],currentArray,currentArray,];
+        setDataGraph ([
+          ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
+          currentArray,
+          currentArray2,
+          currentArray3,
+          
+        ])
         break;
       case 3:
-        console.log("3");
-        // dataGraph = [
-        //   ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
-        //   currentArray,
-        //   currentArray,
-        // ];
+        setDataGraph ([
+          ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
+          currentArray,
+          currentArray2,
+          currentArray3,
+          
+        ])
         break;
       case 4:
-        console.log("4");
-        // dataGraph = [
-        //   ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
-        //   currentArray,
-        //   currentArray,
-        // ];
+        setDataGraph ([
+          ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
+          currentArray,
+          currentArray2,
+          currentArray3,
+          
+        ])
         break;
       default:
-        console.log("default");
-        // dataGraph = [
-        //   ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
-        //   currentArray,
-        //   currentArray,
-        //   currentArray,
-        // ];
+        setDataGraph ([
+          ["Turn Play(WEEK)", "Stock", "Backlog", "Cost"],
+          currentArray,
+          currentArray2,
+          currentArray3,
+          
+        ])
         break;
     }
   }, [props.player]);
@@ -126,7 +132,7 @@ const View = (props) => {
       );
     });
     try {
-      return <div>{list}</div>;
+      return <div style={{overflow:"auto" , marginLeft:"50px"}}>{list}</div>;
     } catch (error) {
       return <h1>API ERROR</h1>;
     }
@@ -153,7 +159,11 @@ const View = (props) => {
       {viewChange == 3 && (
         <div>
           <h2>Beer Distribution Game</h2>
-          <h4></h4>
+          <h4>1. order beer for operation by put number and press submit</h4>
+          <h4>2. Manage Your stock to be enough for operation</h4>
+          <h4>3. Minize operation cost</h4>
+          <h4>** at the end of turn cost of stock = 1 **</h4>
+          <h4>** at the end of turn cost of backlog = 5 **</h4>
         </div>
       )}
       {viewChange == 4 && (

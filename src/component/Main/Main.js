@@ -186,7 +186,7 @@ const Main = (props) => {
         {props.country == null && (
           <input
             onChange={(e) => {
-              console.log(e.target.value);
+              // console.log(e.target.value);
               props.setSearchCountry(e.target.value);
             }}
             type="text"

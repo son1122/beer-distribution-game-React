@@ -13,13 +13,13 @@ const Player = (props) => {
 
   useEffect(() => {
       if(props.country!=null&&props.countryData[0]==undefined){
-       console.log(props.country);
+       // console.log(props.country);
       let options = {
         method: "GET",
         url: "https://holidays-by-api-ninjas.p.rapidapi.com/v1/holidays/",
         headers: {
-          // "X-RapidAPI-Key"  :  "9fb954e0d0msh1fcc78ff571276ap1e3d63jsnf114407345b7",
-          // "X-RapidAPI-Host" : "holidays-by-api-ninjas.p.rapidapi.com",
+          "X-RapidAPI-Key"  :  "9fb954e0d0msh1fcc78ff571276ap1e3d63jsnf114407345b7",
+          "X-RapidAPI-Host" : "holidays-by-api-ninjas.p.rapidapi.com",
         },
         params: {
           country: props.country,
@@ -30,7 +30,7 @@ const Player = (props) => {
       axios
         .request(options)
         .then(function (response) {
-          console.log(response.data);
+          // console.log(response.data);
           props.setCountryHoliday(response.data);
         })
         .catch(function (error) {
@@ -48,7 +48,7 @@ const Player = (props) => {
       axios
         .request(options)
         .then(function (response) {
-          console.log(response.data);
+          // console.log(response.data);
           props.setCountryData(response.data);
         })
         .catch(function (error) {

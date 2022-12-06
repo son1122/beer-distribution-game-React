@@ -128,9 +128,9 @@ const Control = (props) => {
     data4 = turnData(props.player4, props.manu, props.setManu);
     props.setPlayer4(data4);
     // change order to sale of the next player
-    console.log(props);
-
-    console.log(props);
+    // console.log(props);
+    //
+    // console.log(props);
   };
   // data = stock[0],backlog[1],cost[2],sale[3],order[4],getOrder[5],sendOrder[6]
   // stockNext,Manu
@@ -160,9 +160,9 @@ const Control = (props) => {
     // get Order
     //clear backlog Order
     getOrder=Math.abs(getOrder)
-    console.log(dataOfPlayer);
+    // console.log(dataOfPlayer);
     if (backlog > 0) {
-      console.log("test backlog");
+      // console.log("test backlog");
       if(backlog<=getOrder){
         getOrder=getOrder-backlog
         backlog =0
@@ -233,11 +233,11 @@ const Control = (props) => {
             props.setTurn(props.player == 4 ? props.turn + 1 : props.turn);
             editData(e.target[0].value);
             editData2()
-            console.log(props)
+            // console.log(props)
             document.getElementById("value").value = null;
             if (props.player == 4) {
               endTurn();
-              console.log(props);
+              // console.log(props);
             }
           }}
         >
