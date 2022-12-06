@@ -87,7 +87,8 @@ What are you most proud of?
 
 What would you do next?
 
-    Since Time is very limit so i dont have a time to make sure anything to work the way it should so i want to test it .Test in Multiplayer
+   
+    1. Apply Weather condition to price distribution
 
 What did you learn?
 
